@@ -4,8 +4,8 @@
 // Constructors and Destructor
 Form::Form() : _name("Default"), _signed(false), _signGrade(150), _execGrade(150) {}
 
-Form::Form(const std::string& name, int signGrade, int execGrade)
-    : _name(name), _signed(false), _signGrade(signGrade), _execGrade(execGrade) {
+Form::Form(const std::string& _name, int signGrade, int execGrade)
+    : _name(_name), _signed(false), _signGrade(signGrade), _execGrade(execGrade) {
     if (signGrade < 1 || execGrade < 1)
         throw GradeTooHighException();
     if (signGrade > 150 || execGrade > 150)

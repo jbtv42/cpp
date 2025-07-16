@@ -1,9 +1,9 @@
 #include "Bureaucrat.hpp"
 
 // Constructors and Destructor
-Bureaucrat::Bureaucrat() : name("Lazy"), grade(150) {}
+Bureaucrat::Bureaucrat() : _name("Lazy"), grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) {
+Bureaucrat::Bureaucrat(const std::string& _name, int grade) : _name(_name) {
     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) {
     this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), grade(other.grade) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     if (this != &other)
@@ -23,7 +23,7 @@ Bureaucrat::~Bureaucrat() {}
 
 // Getters
 const std::string& Bureaucrat::getName() const {
-    return name;
+    return _name;
 }
 
 int Bureaucrat::getGrade() const {

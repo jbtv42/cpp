@@ -1,7 +1,7 @@
 NAME = ex03
 
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CPP = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp Intern.cpp \
        Bureaucrat.cpp AForm.cpp \
@@ -14,7 +14,7 @@ INCLUDES = -I.
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)

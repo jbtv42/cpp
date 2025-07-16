@@ -1,7 +1,7 @@
 NAME = iter
 
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CPP = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
@@ -9,7 +9,7 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)

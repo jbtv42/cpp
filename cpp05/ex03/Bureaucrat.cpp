@@ -2,9 +2,9 @@
 #include "AForm.hpp"
 
 // Basic managment :
-Bureaucrat::Bureaucrat() : name("Lazy"), grade(150) {}
+Bureaucrat::Bureaucrat() : _name("Lazy"), grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) {
+Bureaucrat::Bureaucrat(const std::string& _name, int grade) : _name(_name) {
     if (grade > 150)
         throw GradeTooLowException();
     if (grade < 1)
@@ -16,7 +16,7 @@ Bureaucrat::~Bureaucrat(){
     std::cout << "Bureaucrat destroyed" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), grade(other.grade) {}
 
 // Grade change functions :
 
@@ -49,7 +49,7 @@ int Bureaucrat::getGrade() const{
 }
 
 const std::string& Bureaucrat::getName() const{
-    return (this->name);
+    return (this->_name);
 }
 
 // Change operators :
@@ -64,9 +64,9 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& B){
 void Bureaucrat::executeForm(AForm const& form) const {
     try {
         form.execute(*this);
-        std::cout << name << " executed " << form.getName() << std::endl;
+        std::cout << _name << " executed " << form.getName() << std::endl;
     } catch (std::exception& e) {
-        std::cout << name << " couldn't execute " << form.getName()
+        std::cout << _name << " couldn't execute " << form.getName()
                   << " because " << e.what() << std::endl;
     }
 }

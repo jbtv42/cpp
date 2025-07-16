@@ -16,7 +16,7 @@ private:
 
 public:
     Form();
-    Form(const std::string& name, int signGrade, int execGrade);
+    Form(const std::string& _name, int signGrade, int execGrade);
     Form(const Form& other);
     Form& operator=(const Form& other);
     ~Form();

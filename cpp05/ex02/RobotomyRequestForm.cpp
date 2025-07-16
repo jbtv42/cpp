@@ -26,7 +26,7 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 }
 
 void RobotomyRequestForm::executeAction() const {
-    std::cout << "BZZZZZZZZZZZZ... drilling noises..." << std::endl;
+    std::cout << "Brrr Brrr... drilling noises..." << std::endl;
     static bool seeded = false;
     if (!seeded) {
         std::srand(std::time(NULL));
