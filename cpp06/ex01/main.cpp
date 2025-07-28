@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main() {
-    Data data = {42, "Hello World"};
+    Data data = {42, "Data phrase"};
     uintptr_t raw = Serializer::serialize(&data);
     Data* ptr = Serializer::deserialize(raw);
 

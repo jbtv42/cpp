@@ -3,11 +3,6 @@
 
 #include <stdint.h>
 
-struct Data {
-    int value;
-    std::string text;
-};
-
 class Serializer {
 public:
     static uintptr_t serialize(Data* ptr);

@@ -1,10 +1,6 @@
 #include "Base.hpp"
 #include <iostream>
 
-void identify(Base* p);
-void identify(Base& p);
-Base* generate();
-
 int main() {
     Base* obj = generate();
     std::cout << "Identified from pointer: ";
