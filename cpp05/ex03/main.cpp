@@ -2,17 +2,16 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-    Intern intern;
+    Intern someRandomIntern;
+    AForm* rrf;
 
-    AForm* form1 = intern.makeForm("shrubbery creation", "Home");
-    AForm* form2 = intern.makeForm("robotomy request", "Bender");
-    AForm* form3 = intern.makeForm("presidential pardon", "Alice");
-    AForm* form4 = intern.makeForm("invalid form", "Target");
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    if (rrf)
+        delete rrf;
 
-    delete form1;
-    delete form2;
-    delete form3;
-    delete form4;
+    rrf = someRandomIntern.makeForm("unknown form", "Nobody");
+    if (rrf)
+        delete rrf;
 
     return 0;
 }

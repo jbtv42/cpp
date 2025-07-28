@@ -5,29 +5,29 @@
 #include <iostream>
 
 Intern::Intern() {}
-Intern::Intern(const Intern&) {}
-Intern& Intern::operator=(const Intern&) { return *this; }
+Intern::Intern(const Intern &) {}
+Intern &Intern::operator=(const Intern &) { return *this; }
 Intern::~Intern() {}
 
-AForm* Intern::makeForm(std::string formName, std::string target) {
-    std::string formTypes[] = {
+AForm* Intern::makeForm(std::string const &formName, std::string const &target) {
+    std::string formNames[3] = {
         "shrubbery creation",
         "robotomy request",
         "presidential pardon"
     };
 
-    AForm* (*formCreators[])(std::string) = {
-        [](std::string t) { return new ShrubberyCreationForm(t); },
-        [](std::string t) { return new RobotomyRequestForm(t); },
-        [](std::string t) { return new PresidentialPardonForm(t); }
+    AForm* (*formCreators[3])(const std::string&) = {
+        [](const std::string& t) -> AForm* { return new ShrubberyCreationForm(t); },
+        [](const std::string& t) -> AForm* { return new RobotomyRequestForm(t); },
+        [](const std::string& t) -> AForm* { return new PresidentialPardonForm(t); }
     };
 
     for (int i = 0; i < 3; ++i) {
-        if (formName == formTypes[i]) {
+        if (formName == formNames[i]) {
             std::cout << "Intern creates " << formName << std::endl;
             return formCreators[i](target);
         }
     }
-    std::cout << "Intern couldn't find the form named \"" << formName << "\"" << std::endl;
+    std::cerr << "Intern could not find the form: " << formName << std::endl;
     return NULL;
 }

@@ -30,9 +30,8 @@ void ShrubberyCreationForm::executeAction() const {
         throw std::runtime_error("Failed to open output file");
 
     file <<
-"_
-/ \
-\_/
- |
- ";
+    "   _\n"
+    "  / \\\n"
+    "  \\_/\n"
+    "   |\n";
 }

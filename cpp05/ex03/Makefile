@@ -1,20 +1,33 @@
-NAME = ex03
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jvittoz <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/24 09:14:35 by jvittoz           #+#    #+#              #
+#    Updated: 2025/04/24 09:14:37 by jvittoz          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = main
 
-SRCS = main.cpp Intern.cpp \
-       Bureaucrat.cpp AForm.cpp \
-       ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+SRCS = main.cpp \
+       Bureaucrat.cpp \
+	   AForm.cpp \
+	   PresidentialPardonForm.cpp \
+	   RobotomyRequestForm.cpp \
+	   ShrubberyCreationForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
-
-INCLUDES = -I.
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)

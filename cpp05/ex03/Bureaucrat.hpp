@@ -9,13 +9,13 @@ class AForm;
 
 class Bureaucrat {
     private : 
-        const std::string   _name;
+        const std::string   name;
         int                 grade;
 
     public :
 
     Bureaucrat();
-    Bureaucrat(const std::string& _name, int grade);
+    Bureaucrat(const std::string& name, int grade);
     ~Bureaucrat();
     Bureaucrat(const Bureaucrat& other);
 
