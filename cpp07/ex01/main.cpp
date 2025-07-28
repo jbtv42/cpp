@@ -1,5 +1,6 @@
-#include <iostream>
 #include "iter.hpp"
+#include <iostream>
+#include <cstddef>
 
 template<typename T>
 void printElement(const T& elem) {
@@ -7,12 +8,12 @@ void printElement(const T& elem) {
 }
 
 int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    ::iter(arr, 5, printElement);
+    int a[] = {1, 2, 3, 4, 5};
+    iter(a, 5, printElement);
     std::cout << std::endl;
 
-    std::string s[] = {"hello", "world"};
-    ::iter(s, 2, printElement);
+    const int b[] = { 6, 7, 8, 9, 10};
+    iter(b, 5, printElement);
     std::cout << std::endl;
 
     return 0;

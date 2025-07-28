@@ -1,22 +1,37 @@
 #include <iostream>
-#include "Array.hpp"
+#include <stdexcept>
 
 int main() {
-    Array<int> a(5);
-    for (unsigned int i = 0; i < a.size(); ++i)
-        a[i] = i * 10;
+    unsigned int size = 5;
 
-    Array<int> b = a;
-    b[0] = 999;
+    int* a = new int();
+    std::cout << *a << std::endl;
+    
+    int* b = new int[size];
+    for (unsigned int i = 0; i < size; ++i)
+        b[i] = i * 10;
 
-    for (unsigned int i = 0; i < a.size(); ++i)
-        std::cout << "a[" << i << "] = " << a[i] << ", b[" << i << "] = " << b[i] << std::endl;
+    int* c = new int[size];
+    for (unsigned int i = 0; i < size; ++i)
+        c[i] = b[i];
+
+    c[0] = 999;
+
+    for (unsigned int i = 0; i < size; ++i)
+        std::cout << "b[" << i << "] = " << b[i] << ", c[" << i << "] = " << c[i] << std::endl;
 
     try {
-        std::cout << a[10] << std::endl;
+        if (10 >= size)
+            throw std::out_of_range("Index out of range");
+        std::cout << b[10] << std::endl;
     } catch (const std::exception &e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 
+    delete a;
+    delete[] b;
+    delete[] c;
+
     return 0;
 }
+
